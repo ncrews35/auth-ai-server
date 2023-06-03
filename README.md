@@ -30,3 +30,11 @@
    ```bash
    $ cp .env.example .env
    ```
+
+## Usage
+
+Start the host server
+
+```bash
+python application.py
+```
