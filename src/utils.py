@@ -6,6 +6,7 @@ __all__ = [
     "error"
 ]
 
+
 class ErrorCode(Enum):
     INVALID_REQUEST = "invalid_request"
     INVALID_CLIENT = "invalid_client"
@@ -16,11 +17,13 @@ class ErrorCode(Enum):
     SERVER_ERROR = "server_error"
     TEMPORARILY_UNAVAILABLE = "temporarily_unavailable"
 
+
 def error(error_code: ErrorCode, error_description: str):
-    return json.dumps({
-        "code": error_code,
+    return {
+        "code": error_code.value,
         "description": error_description
-    }), status_code(error_code)
+    }, status_code(error_code)
+
 
 def status_code(error_code: ErrorCode):
     if error_code == ErrorCode.INVALID_REQUEST:

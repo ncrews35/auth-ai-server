@@ -38,8 +38,8 @@ def auth():
 
     if not verify_client_info(client_id, redirect_url):
         return error(ErrorCode.INVALID_CLIENT, "Invalid client information")
-
-    return render_template('./src/templates/AC_PKCE_grant_access.html',
+    
+    return render_template('login.html',
                            client_id=client_id,
                            redirect_url=redirect_url,
                            code_challenge=code_challenge)
@@ -97,11 +97,11 @@ def exchange_for_token():
         return error(ErrorCode.INVALID_GRANT, "Invalid authorization code")
 
     access_token = generate_access_token()
-    return json.dumps({
+    return {
         "access_token": access_token,
         "token_type": "JWT",
         "expires_in": JWT_LIFE_SPAN
-    })
+    }
 
 
 if __name__ == '__main__':
