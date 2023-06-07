@@ -1,10 +1,7 @@
 import json
 from enum import Enum
 
-__all__ = [
-    "ErrorCode",
-    "error"
-]
+__all__ = ["ErrorCode", "error"]
 
 
 class ErrorCode(Enum):
@@ -19,10 +16,9 @@ class ErrorCode(Enum):
 
 
 def error(error_code: ErrorCode, error_description: str):
-    return {
-        "code": error_code.value,
-        "description": error_description
-    }, status_code(error_code)
+    return {"code": error_code.value, "description": error_description}, status_code(
+        error_code
+    )
 
 
 def status_code(error_code: ErrorCode):

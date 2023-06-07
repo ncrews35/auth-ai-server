@@ -1,10 +1,17 @@
 {
     "cSpell.words": [
+        "amazoncognito",
         "authai",
         "boto",
+        "dotenv",
         "Fernet",
         "PKCE",
+        "urandom",
         "virt",
         "virtualenv"
-    ]
+    ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none"
 }
